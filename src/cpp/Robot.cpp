@@ -10,13 +10,15 @@ int add(int a, int b) {
 
 class Robot: public IterativeRobot {
   XboxController *xbox = new XboxController(0);
-  TalonSRX *right_one = new TalonSRX(0), *right_two = new TalonSRX(1), *right_three = new TalonSRX(2), *left_one = new TalonSRX(3), *left_two = new TalonSRX(4), *left_three = new TalonSRX(5)
-  RobotDrive *robot = new RobotDrive();
+  Talon *right_one, *right_two, *right_three, *left_one, *left_two, *left_three;
+  TalonSRX *test;
 public:
   double LY, RY;
     Robot() { }
 
     void RobotInit() {
+      right_one = new Talon(0), right_two = new Talon(1), right_three = new Talon(2),
+      left_one = new Talon(3), left_two = new Talon(4), left_three = new Talon(5);
     }
     void TankDrive(double l, double r) {
       right_one->Set(r);
